@@ -10,7 +10,9 @@ NetPyNe Model of CA3 Layer Repo
 
 * /cfg.py: Simulation configuration
 
-* /geom.py: Cell parameters
+* /PYRcell.json: Cell parameters
+* /OLMcell.json: Cell parameters
+* /BAScell.json: Cell parameters
 
 
 init.py will plot:
