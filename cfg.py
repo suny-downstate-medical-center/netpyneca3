@@ -8,7 +8,7 @@ simdur = 300
 simConfig = specs.SimConfig()        # object of class SimConfig to store simulation configuration
 simConfig.duration = simdur         # Duration of the simulation, in ms
 simConfig.dt = 0.025                  # Internal integration timestep to use
-simConfig.checkErrors = True
+cfg.checkErrors = False
 simConfig.verbose = False            # Show detailed messages 
 simConfig.seeds={'conn': 1, 'stim': 1, 'loc': 1}
 

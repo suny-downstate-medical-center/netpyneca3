@@ -1,6 +1,6 @@
 NetPyNe Model of CA3 Layer Repo
 
-1. Type or `./compile or the equivalent `nrnivmodl mod`. This should create a directory called either i686 or x86_64, depending on your computer's architecture. 
+1. Type or `./compile` or the equivalent `nrnivmodl mod`. This should create a directory called either i686 or x86_64, depending on your computer's architecture. 
 
 ## Overview of file structure:
 
@@ -10,12 +10,15 @@ NetPyNe Model of CA3 Layer Repo
 
 * /cfg.py: Simulation configuration
 
-* /cellParams.py: Cell parameters
+* /geom.py: Cell parameters
 
 
 init.py will plot:
+
 	 - Cell 1 of the pyramidal cell population
+
 	 - Raster plot 
+
 	 - LFP plots at 5 different locations across the apical dendrite and an average
 
 
