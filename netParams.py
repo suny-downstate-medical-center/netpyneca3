@@ -18,7 +18,7 @@ netParams.probLengthConst = 150.0 # length constant for conn probability (um)
 netParams.popParams['PYR'] = {'cellType': 'PYR', 'numCells': 800, 'yRange': [100,600], 'cellModel': 'HH'}
 netParams.popParams['OLM'] = {'cellType': 'OLM', 'numCells': 200, 'yRange': [500,600], 'cellModel': 'HH'}
 netParams.popParams['BAS'] = {'cellType': 'BAS', 'numCells': 200, 'yRange': [200,500], 'cellModel': 'HH'}
-
+'''
 netParams.importCellParams(
     label = 'PYR_rule',
     conds = {'cellType': 'PYR','cellModel': 'HH'},
@@ -40,6 +40,16 @@ netParams.importCellParams(
     fileName = 'cellParams.py',
     cellName = 'Bwb',
     )
+
+
+netParams.saveCellParamsRule('BAS_rule', 'BAScell.json')
+netParams.saveCellParamsRule('PYR_rule', 'PYRcell.json')
+netParams.saveCellParamsRule('OLM_rule', 'OLMcell.json')
+'''
+
+netParams.loadCellParamsRule('PYR_rule','PYRcell.json')
+netParams.loadCellParamsRule('OLM_rule','OLMcell.json')
+netParams.loadCellParamsRule('BAS_rule','BAScell.json')
 
 
 #making Synapses

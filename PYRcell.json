@@ -1,0 +1,211 @@
+{
+    "conds": {
+        "cellModel": "HH",
+        "cellType": "PYR"
+    },
+    "globals": {},
+    "secLists": {},
+    "secs": {
+        "Adend1": {
+            "geom": {
+                "L": 150.0,
+                "Ra": 150.0,
+                "cm": 1.0,
+                "diam": 2.0,
+                "nseg": 1
+            },
+            "mechs": {
+                "hcurrent": {
+                    "e": -30.0,
+                    "g": 0.0002,
+                    "gfactor": 1.0,
+                    "v50": -82.0
+                },
+                "kacurrent": {
+                    "e": -90.0,
+                    "g": 0.072,
+                    "gd": 0.0
+                },
+                "kdrcurrent": {
+                    "e": -90.0,
+                    "g": 0.01
+                },
+                "nacurrent": {
+                    "e": 55.0,
+                    "g": 0.032,
+                    "ki": 0.5,
+                    "vi": -60.0
+                },
+                "pas": {
+                    "e": -70.0,
+                    "g": 3.57e-05
+                }
+            },
+            "topol": {
+                "childX": 0.0,
+                "parentSec": "soma",
+                "parentX": 0.5
+            }
+        },
+        "Adend2": {
+            "geom": {
+                "L": 150.0,
+                "Ra": 150.0,
+                "cm": 1.0,
+                "diam": 2.0,
+                "nseg": 1
+            },
+            "mechs": {
+                "hcurrent": {
+                    "e": -30.0,
+                    "g": 0.0004,
+                    "gfactor": 1.0,
+                    "v50": -90.0
+                },
+                "kacurrent": {
+                    "e": -90.0,
+                    "g": 0.0,
+                    "gd": 0.12
+                },
+                "kdrcurrent": {
+                    "e": -90.0,
+                    "g": 0.01
+                },
+                "nacurrent": {
+                    "e": 55.0,
+                    "g": 0.032,
+                    "ki": 0.5,
+                    "vi": -60.0
+                },
+                "pas": {
+                    "e": -70.0,
+                    "g": 3.57e-05
+                }
+            },
+            "topol": {
+                "childX": 0.0,
+                "parentSec": "Adend1",
+                "parentX": 1.0
+            }
+        },
+        "Adend3": {
+            "geom": {
+                "L": 150.0,
+                "Ra": 150.0,
+                "cm": 2.0,
+                "diam": 2.0,
+                "nseg": 1
+            },
+            "mechs": {
+                "hcurrent": {
+                    "e": -30.0,
+                    "g": 0.0007,
+                    "gfactor": 1.0,
+                    "v50": -90.0
+                },
+                "kacurrent": {
+                    "e": -90.0,
+                    "g": 0.0,
+                    "gd": 0.2
+                },
+                "kdrcurrent": {
+                    "e": -90.0,
+                    "g": 0.01
+                },
+                "nacurrent": {
+                    "e": 55.0,
+                    "g": 0.032,
+                    "ki": 0.5,
+                    "vi": -60.0
+                },
+                "pas": {
+                    "e": -70.0,
+                    "g": 7.14e-05
+                }
+            },
+            "topol": {
+                "childX": 0.0,
+                "parentSec": "Adend2",
+                "parentX": 1.0
+            }
+        },
+        "Bdend": {
+            "geom": {
+                "L": 200.0,
+                "Ra": 150.0,
+                "cm": 1.0,
+                "diam": 2.0,
+                "nseg": 1
+            },
+            "mechs": {
+                "hcurrent": {
+                    "e": -30.0,
+                    "g": 0.0001,
+                    "gfactor": 1.0,
+                    "v50": -82.0
+                },
+                "kacurrent": {
+                    "e": -90.0,
+                    "g": 0.048,
+                    "gd": 0.0
+                },
+                "kdrcurrent": {
+                    "e": -90.0,
+                    "g": 0.01
+                },
+                "nacurrent": {
+                    "e": 55.0,
+                    "g": 0.032,
+                    "ki": 1.0,
+                    "vi": -60.0
+                },
+                "pas": {
+                    "e": -70.0,
+                    "g": 3.57e-05
+                }
+            },
+            "topol": {
+                "childX": 0.0,
+                "parentSec": "soma",
+                "parentX": 0.0
+            }
+        },
+        "soma": {
+            "geom": {
+                "L": 20.0,
+                "Ra": 150.0,
+                "cm": 1.0,
+                "diam": 20.0,
+                "nseg": 1
+            },
+            "mechs": {
+                "hcurrent": {
+                    "e": -30.0,
+                    "g": 0.0001,
+                    "gfactor": 1.0,
+                    "v50": -82.0
+                },
+                "kacurrent": {
+                    "e": -90.0,
+                    "g": 0.048,
+                    "gd": 0.0
+                },
+                "kdrcurrent": {
+                    "e": -90.0,
+                    "g": 0.01
+                },
+                "nacurrent": {
+                    "e": 55.0,
+                    "g": 0.032,
+                    "ki": 0.8,
+                    "vi": -60.0
+                },
+                "pas": {
+                    "e": -70.0,
+                    "g": 3.57e-05
+                }
+            },
+            "topol": {}
+        }
+    }
+}
