@@ -1,4 +1,4 @@
-: $Id: misc.mod,v 1.23 2007/12/07 21:46:51 billl Exp $
+: $Id: misc.mod,v 1.24 2011/10/14 15:00:26 samn Exp $
 
 COMMENT
 Misc. routines:
@@ -37,7 +37,6 @@ ENDCOMMENT
 INDEPENDENT {t FROM 0 TO 1 WITH 1 (ms)}
 
 NEURON {
-THREADSAFE
     SUFFIX nothing
 }
 
@@ -77,12 +76,12 @@ ENDVERBATIM
 
 FUNCTION istmpobj () {
 VERBATIM
-  _listmpobj=hoc_is_tempobj_arg(1);
+  _listmpobj=hoc_is_tempobj(1);
 ENDVERBATIM  
 }
 
 :* PROCEDURE sassign()
-PROCEDURE sassign() {
+FUNCTION sassign() {
 VERBATIM
     FILE *pipein;
     char string[BUFSIZ], **strname, *syscall;
@@ -93,12 +92,12 @@ VERBATIM
 
     if( !(pipein = popen(syscall, "r"))) {
         fprintf(stderr,"System call failed\n");
-        return; 
+        return 0; 
     }
     
     if (fgets(string,BUFSIZ,pipein) == NULL) {
         fprintf(stderr,"System call did not return a string\n");
-        pclose(pipein); return;
+        pclose(pipein); return 0;
     }
 
     /*  assign_hoc_str(strname, string, 0); */
@@ -106,11 +105,12 @@ VERBATIM
 
     pclose(pipein);
     errno = 0;
+    return 0;
 ENDVERBATIM
 }
 
 :* PROCEDURE dassign() 
-PROCEDURE dassign() {
+FUNCTION dassign() {
 VERBATIM
     FILE *pipein, *outfile;
     char *strname, *syscall;
@@ -121,17 +121,17 @@ VERBATIM
 
     if ( !(outfile = fopen("dassign","w"))) {
         fprintf(stderr,"Can't open output file dassign\n");
-        return; 
+        return 0; 
     }
 
     if( !(pipein = popen(syscall, "r"))) {
         fprintf(stderr,"System call failed\n");
-        fclose(outfile); return; 
+        fclose(outfile); return 0; 
     }
     
     if (fscanf(pipein,"%lf",&num) != 1) {
         fprintf(stderr,"System call did not return a number\n");
-        fclose(outfile); pclose(pipein); return; 
+        fclose(outfile); pclose(pipein); return 0; 
     }
 
     fprintf(outfile,"%s=%g\n",strname,num);
@@ -139,6 +139,7 @@ VERBATIM
 
     fclose(outfile); pclose(pipein);
     errno = 0;
+    return 0;
 ENDVERBATIM
 }
 
@@ -165,13 +166,14 @@ VERBATIM
 ENDVERBATIM
 }
 
-:* PROCEDURE sleepfor ()
-PROCEDURE sleepfor (sec) {
+:* FUNCTION sleepfor (seconds[,nanoseconds])
+: returns 0 on success, -1 on failure, nanosecond arg should be < 1 second
+FUNCTION sleepfor (sec) {
 VERBATIM
   struct timespec ts;
   ts.tv_sec = (time_t)_lsec;
-  ts.tv_nsec = (long)0;
-  nanosleep(&ts,(struct timespec*)0);
+  ts.tv_nsec = ifarg(2)?(long)*getarg(2):(long)0;
+  return (double) nanosleep(&ts,(struct timespec*)0);
 ENDVERBATIM
 }
 
